@@ -32,14 +32,14 @@ class SendEmails extends Command
      */
     public function handle()
     {
-        $weekAgo = Carbon::now()->subDays(7);
+        $weekAgo = Carbon::now()->subDays(7); // 7 days ago
         $users = User::all();
         foreach($users as $user)
         {
             $posts_number = Post::where('created_at', '>=', $weekAgo)
                             ->where('user_id', $user->id)
                             ->count();
-
+            //send mail to all users
             Mail::to($user->email)->send(new SendEmail($posts_number));
         }
     }

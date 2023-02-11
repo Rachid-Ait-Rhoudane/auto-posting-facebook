@@ -52,7 +52,7 @@ class EditPost extends Component
         }
         else if($this->post->type == "Image")
         {
-            Log::alert('We do not have an end point to update an image post for the moment ');
+            Log::alert('We do not have an endpoint to update an image post for the moment ');
         }
         else if($this->post->type == "Video")
         {
